@@ -175,5 +175,8 @@ var myFun = {
 	        pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
 	    }
 	    return pwd;
+	},
+	getClass:function(object){
+		return Object.prototype.toString.call(object).match(/^\[object\s(.*)\]$/)[1];
 	}
 };

